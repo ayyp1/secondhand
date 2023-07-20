@@ -1,0 +1,49 @@
+
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href = "{% static 'secapp/styles.css' %}">
+    
+</head>
+<body> 
+    <nav class = 'bg-gray shadow-lg'>
+        <div class = "max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class = "flex space-x-7">
+                    <div >
+                        <a href="{% url 'secapp:bikes' %}" class = "flex items-center px-3 py-3">
+                            <img class = "h-10 w-10" src="{% static 'secapp/images/icon.png' %}">
+                            <span class="font-sans font-bold text-3xl"> Second Hand</span>
+                        </a>
+                      
+                    </div>
+                    <div class = "items-center flex space-x-1">
+                        <a href="{% url 'secapp:bikes' %}" class =" px-2 py-4 font-bold text-xl text-gray-500 border-red-500 border-b-4">Home </a>
+                        <a href="{% url 'secapp:addbike'%}" class =" px-2 py-4 font-bold text-xl text-gray-500 ">Add</a>
+        
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:logout' %} " class =" px-2 float-right py-4 font-bold text-xl text-gray-500 border-red-500 border-b-4"> Logout</a>
+                            <a href="{% url 'users:profile' %} " class =" px-2 float-right py-4 font-bold text-xl text-gray-500 border-red-500 border-b-4"> profile</a>
+                            <a href="{% url 'secapp:mylist' %} " class =" px-2 float-right py-4 font-bold text-xl text-gray-500 border-red-500 border-b-4"> My list</a>
+                        {% else %}
+                            <a href="{% url 'users:login' %} " class =" px-20 py-4 font-bold text-xl text-gray-500 border-red-500 border-b-4"> Login</a>
+                        {% endif %}
+                    </div>
+                </div> 
+            </div>
+        </div>
+        </nav>
+    
+    {% block content %}
+
+
+    {% endblock %}
+</body>
+
+</html>

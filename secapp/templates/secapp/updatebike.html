@@ -1,0 +1,36 @@
+{% extends 'secapp/base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-2xl m-10 font-bold">+Update Bike</h1>
+
+<form class=" w-3/5  bg-white shadow-md m-10 px-8 py-8" method="POST" enctype="multipart/form-data">
+   
+    {% csrf_token %}
+    <div class = "mb-4">
+        <label class ="block text-gray-500 text-sm font-bold mb-2 " for="">Bike name:</label>
+        <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500" value = "{{bike.name}}" type="text" name="name" id="name" placeholder="Bike name">
+    </div>
+    <div class = "mb-4">
+        <label class ="block text-gray-500 text-sm font-bold mb-2 " for="">Registered num:</label>
+        <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500" value = "{{bike.bikenum}}" type="text" name="bikenum" id="bikenum" placeholder="Bike num ">
+
+    </div>
+    <div class = "mb-4"> 
+        <label class ="block text-gray-500 text-sm font-bold mb-2 " for="">Bike description:</label>
+        <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500" value = "{{bike.desc}}" type="text" name="desc" id="desc" placeholder="Enter a description ">
+
+    </div>
+    <div class = "mb-4">
+        <img class="w-20 h-20" src="{{bike.image.url}}" alt="">
+        <label class ="block text-gray-500 text-sm font-bold mb-2 " for="">Bike image:</label>
+        <input class=" py-2  mr-10 text-gray-500 " type="file" accept= "image/*" name="upload" id="upload">
+
+    </div>
+    <div class = "mb-5">
+    
+        <input class = "bg-green-500 text-white px-5 py-2"type="submit" name="Add Bike" id="Add Bike">
+
+    </div>
+</form>
+    
+{% endblock %}

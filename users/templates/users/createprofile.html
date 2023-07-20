@@ -1,0 +1,21 @@
+{% extends 'secapp/base.html' %}
+
+{% block content %}
+
+<form method = 'POST' enctype= "multipart/form-data" class="bg-white shadow-md m-10 w-3/5 rounded px-8 pt-6 pb-8 mb-4">
+    {% csrf_token %} 
+     <div class = "mb-4">
+        <label for=""> upload profile image</label>
+        <input class="py-2" placeholder="upload a clear profile image" type="file" accept="image/*" name="upload" id="upload">
+    </div>
+    <div class="mb-4">
+        <label for="">Contact num </label>
+        <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700" placeholder="9999999999" type="text" name="contact_num" id="contact_num">
+        
+    </div>
+    <input class="bg-red-500 text-white px-5 py-2" type="submit">
+</form>
+
+
+
+{%endblock%}
