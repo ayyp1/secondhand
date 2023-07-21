@@ -1,1 +1,1 @@
-web: gunicorn handsec:app 
+gunicorn handsec.wsgi --log-file -
